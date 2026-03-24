@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="box">
+        <h2>Text Analyzer</h2>
+
+        <textarea id="textInput" placeholder="Enter text.."></textarea>
+
+        <button onclick="analyzeText()">Analyze Text</button>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function analyzeText() 
+        {
+            let text = document.getElementById("textInput").value;
+
+            let cleanText = text.trim();
+            if (cleanText === "") 
+            {
+                document.getElementById("result").innerHTML = "Please enter text!";
+                return;
+            }
+            let charCount = text.length;
+
+            let wordCount = cleanText.split(/\s+/).length;
+
+            let reversed = text.split("").reverse().join("");
+            document.getElementById("result").innerHTML =
+                "Characters: " + charCount + "<br>" +
+                "Words: " + wordCount + "<br>" +
+                "Reversed: " + reversed;
+        }
+    </script>
+
+</body>
+</html>
